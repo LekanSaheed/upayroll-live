@@ -40,7 +40,7 @@ const TopUp = () => {
       .then((data) => {
         if (data.success) {
           setLoading(false);
-          toast.success(data.message);
+          toast.info(data.message);
           setTimeout(() => {
             router.push(data.url);
           }, 2000);
@@ -124,14 +124,6 @@ const TopUp = () => {
         >
           Top Up
         </button>
-        <Link
-          href={{
-            pathname: `${router.pathname}/success`,
-            query: { id: 23455 },
-          }}
-        >
-          Test Slug
-        </Link>
       </div>
     </div>
   );

@@ -53,8 +53,7 @@ const TopUp = () => {
     setLoading(false);
   };
 
-  const key = "FLWSECK_TEST-008e9db6eae0baaf577a898fb8afb5d9-X";
-  const flutterApi = "https://api.flutterwave.com";
+  // const flutterApi = "https://api.flutterwave.com";
 
   return (
     <div className={classes.container}>

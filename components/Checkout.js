@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import classes from "./Checkout.module.css";
 import { useAuthState } from "../payrollContext/AuthContext";
+import { toast } from "react-toastify";
 
 const Checkout = ({ pub_key }) => {
   const [amount, setAmount] = useState("");
@@ -13,7 +14,8 @@ const Checkout = ({ pub_key }) => {
     amount: amount,
     currency: "NGN",
     payment_options: "card,mobilemoney,ussd",
-    redirect_url: "https://upayroll.vercel.app/payroll/topup/successful",
+    // redirect_url: "https://upayroll.vercel.app/payroll/topup/successful",
+    redirect_url: "https://payroll.uhurupay.ng/payroll/topup/successful",
     customer: {
       email: user.email,
       phonenumber: user.phone,
@@ -59,7 +61,7 @@ const Checkout = ({ pub_key }) => {
                   closePaymentModal(); // this will close the modal programmatically
                 },
                 onClose: () => {
-                  alert("Closed");
+                  toast.error("Transaction Canceled");
                 },
               });
             }}
